@@ -20,7 +20,7 @@ public class RadioCharts {
     }
 
     public String getMostActiveArtist() {
-        return getRequiredData("SELECT artist, COUNT (artist) FROM music_broadcast GROUP BY artist ORDER BY COUNT (artist) DESC LIMIT 1;",
+        return getRequiredData("SELECT artist, COUNT(DISTINCT song) FROM music_broadcast GROUP BY artist, song ORDER BY song DESC LIMIT 1;",
                 "artist");
     }
 
